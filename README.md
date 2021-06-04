@@ -3,9 +3,6 @@
 This project has been built to demonstrate a nodeJS USSD menu builder with redis. As a result of encountering several issues when developing menus with [ussd-menu-builder](https://www.npmjs.com/package/ussd-menu-builder), we developed a more adaptable library.
 
 
-<br />
-<br />
-
 ## Problem Statement
 
 This USSD menu builder seeks to fix the following issues that we have encountered when building USSD menus.
@@ -29,17 +26,12 @@ These are the key features that have been solved in this Library
 > Note: We have borrowed heavily from the [ussd-menu-builder](https://www.npmjs.com/package/ussd-menu-builder) to build several components on the solution.
 
 
-<br />
-<br />
-
 ## Project requirements
 To use this project you will require:
 * Install nodeJS > v10
 * Install typescript globally **`npm install -g typescript`** and **`npm install -g ts-node`**
-* Set up a redis server
+* Set up a redis server  
 
-<br />
-<br />
 
 ## Project structure
 Here is a summary of the project layout.
@@ -55,9 +47,6 @@ project
 │   └───typings
 └───index.ts
 ```
-
-<br />
-<br />
 
 
 ## State Management
@@ -110,7 +99,6 @@ first_name: {
 },
 
 ```
-<br />
 
 ### Writing a state controller
 
@@ -175,7 +163,6 @@ if(!Number(input.current_input)){
 
 ```
 
-<br />
 
 ### Writing a state language output
 
@@ -215,14 +202,10 @@ State language have the following properties:
 > Notice ``%c`` is used to display the count value dynamically, ``%d`` is where the menu option list will be displayed. You can pass variables to be diplayed like ``%s1``. This will be replaced with value set on property ``s1`` 
 
 
-<br />
-<br />
-
 
 ## Session Management
 Sessions are used to maintain data that can be passed across several states.
 
-<br />
 
 ### Session Variables
 These are values that can be stored for use across multiple states. Some key properties stored on the session include:
