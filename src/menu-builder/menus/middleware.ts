@@ -5,7 +5,10 @@ import { promisify } from "util"
 
 export default async function(input: InputAttributes, redis: RedisClient) {
 
-    // HANDELE  ALL  NILL INPUT INSTANCES
+    // ALL OPERATIONS HERE ARE PERFORMED THE STATE CONTROLLER RUNS
+    // TO END PROCESS BEFORE AL THIS LEVEL RETURN continue: false
+
+    // HANDELE ALL NILL INPUT INSTANCES
     if(input.current_input === 'NiLL') {
 
         const hgetallAsync = promisify(redis.hgetall).bind(redis)
@@ -20,9 +23,6 @@ export default async function(input: InputAttributes, redis: RedisClient) {
         }
 
     }
-
-    // ADD ADDITIONAL HANDLERS CAN BE SET HERE
-
 
     // EXAMPLE TO HANDLE ALL INPUTS THAT ARE 0 or 00
     // if(input.current_input === '0' || input.current_input === '00') {

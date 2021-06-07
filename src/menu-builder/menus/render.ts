@@ -1,5 +1,8 @@
 export default function(displayState, stateText, stateVariables, inputPrefix = ''){
 
+    // THIS OPERATION MERGES THE STATE CONFIG AND LANGUAGE CONFIG INTO A SINGLE TEXT
+    // TODO: ALLOW FOR PAGINATION OF LONG TEXT
+
     let response = "";
     let stateTextVariable = "";
     let stateTextStatic = "";

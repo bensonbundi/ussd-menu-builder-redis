@@ -8,4 +8,18 @@ export default {
     internal_error: {
         "variable": "An error occurred executing your request, please try again later."
     },
+    // BELOW IS A SELECT / COUNT CONFIG EXAMPLE
+    // user_new: {
+    //     "variable": "Welcome to Bold Utual. You are currently not registered.",
+    //     "static": "%d",
+    //     "menu_options": {
+    //         "1": "\n%c Enter BVN",
+    //         "2": "\n%c Enter National ID number"
+    //     }
+    // }
+
+    // BELOW IS AN ENTRY CONFIG EXAMPLE
+    // user_exists: {
+    //     "variable": "Welcome to Old Mutual %s1, please enter your secret 4 digit PIN code to login."
+    // }
 }

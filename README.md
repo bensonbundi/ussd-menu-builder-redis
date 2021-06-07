@@ -14,6 +14,7 @@ This USSD menu builder seeks to fix the following issues that we have encountere
 ### 1. State dependency
 On the library [ussd-menu-builder](https://www.npmjs.com/package/ussd-menu-builder), for a state to run all previous state next functions also run. This causes problems when trying to resolve issues on an active state down the chain.
 
+
 ### 2. Poor menu configuration options
 Menus should be built with multi language support and support for different mobile network operator data formats. 
 
@@ -64,7 +65,7 @@ Project has a set of base configurations that are located in the ``configs/index
 Manages all language files to be used in a project. 
 
 ### Menu operations
-Manage all operations that aid id building menus .
+Manage all operations that aid id creating what will be displayed to the customer.
 * Menu renderer - Builds the menu text from the state config and the language config
 * Menu middleware - Actions that can be performed before menus are called. Override operations can be configured here eg. Whenever user types ``0`` perform a special operation
 

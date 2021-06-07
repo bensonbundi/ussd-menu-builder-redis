@@ -42,14 +42,15 @@ export default async function(input: InputAttributes, redis: RedisClient){
 
         if(runState.next){
             // REDIS UPDATE STATE
-            const updateActiveState = await hmsetAsync(input.sid, "active_state", runState.next_screen, "full_input", input.full_input, "last_input", input.current_input, "masked_input", input.masked_input+"*"+inputvalue);
+            hmsetAsync(input.sid, "active_state", runState.next_screen, "full_input", input.full_input, "last_input", input.current_input, "masked_input", input.masked_input+"*"+inputvalue);
             const nextState = states[runState.next_screen];
             const stateText = languages[input.language][runState.next_screen]
 
             response = menuRender(nextState, stateText, runState.variables)
     
         } else {
-            const updateActiveState = await hmsetAsync(input.sid, "full_input", input.full_input, "last_input", input.current_input, "masked_input", input.masked_input+"*"+inputvalue);
+            // REDIS UPDATE STATE
+            hmsetAsync(input.sid, "full_input", input.full_input, "last_input", input.current_input, "masked_input", input.masked_input+"*"+inputvalue);
 
             // HANDLE INVALID INPUT SCENARIO
             if(runState.invalid_input){
@@ -65,14 +66,14 @@ export default async function(input: InputAttributes, redis: RedisClient){
 
         // UPDATE SESSION ENTRIES AND SCREENS
         const rpushAsync = promisify(redis.rpush).bind(redis)
-        const insertEntry = await rpushAsync(input.sid+":"+input.hash+":entries", input.active_state+":"+inputvalue)
-        const insertScreens = await rpushAsync(input.sid+":"+input.hash+":screens", response)
+        rpushAsync(input.sid+":"+input.hash+":entries", input.active_state+":"+inputvalue)
+        rpushAsync(input.sid+":"+input.hash+":screens", response)
 
     }
 
-     // IF END TERMINATE SESSION FORCEFULLY
-     if(end){
-        await terminator(input.sid, input.hash, redis)
+    // IF END TERMINATE SESSION FORCEFULLY
+    if(end){
+        terminator(input.sid, input.hash, redis)
     }
 
     return prefix + response

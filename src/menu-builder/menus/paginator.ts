@@ -1,3 +1,5 @@
+// TODO: BUILD A MORE ROBUST PAGINATOR THAT CAN HANDLE MULTI OPTION PAGES AND LONG TEXT PAGES
+
 export function paginator(menu_variable, menu_static){
 
     //strip out cc - character count title + `\ncc: ${title.length}` 

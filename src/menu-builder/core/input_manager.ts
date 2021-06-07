@@ -5,7 +5,8 @@ export default function(last_input: string, incoming_input: string){
     
     // AFRICAS TALKING EXAMPLE
     // FOR AFRICAS TALKING FIND THE DIFFERENCE BETWEEN LAST INPUT AND INCOMING INPUT
-    // EXAMPLE last_input = 1*2*3  incoming_input = 1*2*3*4 therefore input = 4
+    // GIVES THE CURRENT INPUT
+    // EXAMPLE last_input = 1*2*3  incoming_input = 1*2*3*4 therefore current_input = 4
     
     if(last_input.length >= incoming_input.length){
         // ENSURE LAST INPUT IS LESS THAN THE CURRENT INPUT
