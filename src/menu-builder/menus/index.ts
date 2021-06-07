@@ -5,7 +5,7 @@ import states from "../states"
 import languages from '../lang'
 import terminator from "../core/terminator"
 import middleware from "./middleware"
-import menuBuilder from "./menu-builder"
+import menuRender from "./render"
 
 export default async function(input: InputAttributes, redis: RedisClient){
 
@@ -46,7 +46,7 @@ export default async function(input: InputAttributes, redis: RedisClient){
             const nextState = states[runState.next_screen];
             const stateText = languages[input.language][runState.next_screen]
 
-            response = menuBuilder(nextState, stateText, runState.variables)
+            response = menuRender(nextState, stateText, runState.variables)
     
         } else {
             const updateActiveState = await hmsetAsync(input.sid, "full_input", input.full_input, "last_input", input.current_input, "masked_input", input.masked_input+"*"+inputvalue);
@@ -58,7 +58,7 @@ export default async function(input: InputAttributes, redis: RedisClient){
                 const currState = states[input.active_state];
                 const stateText = languages[input.language][input.active_state]
 
-                response = menuBuilder(currState,stateText, runState.variables, invalidInputText)
+                response = menuRender(currState,stateText, runState.variables, invalidInputText)
 
             }
         }

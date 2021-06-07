@@ -64,7 +64,9 @@ Project has a set of base configurations that are located in the ``configs/index
 Manages all language files to be used in a project. 
 
 ### Menu operations
-Manage all operations that aid id building menus 
+Manage all operations that aid id building menus .
+* Menu renderer - Builds the menu text from the state config and the language config
+* Menu middleware - Actions that can be performed before menus are called. Override operations can be configured here eg. Whenever user types ``0`` perform a special operation
 
 ### State operations
 Manage states and state controllers (Functions that run when a state is called)
