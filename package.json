@@ -10,9 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1",
     "redis": "^3.1.2"
   },
   "devDependencies": {
+    "@types/express": "^4.17.12",
+    "@types/node": "^15.12.1",
     "@types/redis": "^2.8.29"
   }
 }
