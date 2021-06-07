@@ -19,17 +19,15 @@ This is certainly bad design. Each state should run independently without bother
 
 ### 2. Poor menu configuration options
 * Menus should be built with multi language support to cut down development time. 
-* Menus should also support different Mobile Network Operators (MNOs) Input types. 
+* Menus should also support different Mobile Network Operators (MNOs) configs. 
     * Some MNOs support chained inputs (1*2*3) while allow sending of one value at a time.
-    * Some MNOs allow sequential requests while others don't support it
+    * Some MNOs allow sequential requests in the beginning of the menu call while others don't support it
 
 ### 3. Poor adaptability 
 Menus should be adaptable and easy to configure new functionalities such as pagination and dynamic menu content without performing hacks and work arounds
 
-These are the key features that have been solved in this Library
 
-
-> Note: We have borrowed heavily from the [ussd-menu-builder](https://www.npmjs.com/package/ussd-menu-builder) to build several components on the solution.
+> Note: Despite the problem, we have borrowed heavily from the [ussd-menu-builder](https://www.npmjs.com/package/ussd-menu-builder) to build several components on the solution.
 
 
 ## Project requirements
