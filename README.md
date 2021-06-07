@@ -14,7 +14,7 @@ This USSD menu builder seeks to fix the following issues that we have encountere
 ### 1. State dependency
 On the library [ussd-menu-builder](https://www.npmjs.com/package/ussd-menu-builder), given ``20 states`` and lets say we are currently on ``state 10`` on the list, any input provided at this state will trigger all previous states to run. As the states increase so are the number of hops done to run the current state. if an error occurs in one of the previous states it causes a chain reaction on all upcoming states. 
 
-This is certainly bad design. Each state should run independently without bothering others. We solve this problem by ensuring any input provided at ``state 10`` only triggers the function that runs on the current state.
+This is certainly bad design. Each state should run independently without influencing others. We solve this problem by ensuring any input provided at ``state 10`` only triggers the function that runs on the current state.
 
 
 ### 2. Poor menu configuration options
