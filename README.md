@@ -8,7 +8,7 @@ This project has been built to demonstrate a nodeJS USSD menu builder with redis
 This USSD menu builder seeks to fix the following issues that we have encountered when building USSD menus.
 
     1. State dependency
-    2. Poor menu configuration options (multi-language and input type configs)
+    2. Poor menu configuration options (multi-language and Dynamic input support)
     3. Poor adaptability (Pagination and dynamic content handling)
 
 ### 1. State dependency
