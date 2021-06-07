@@ -48,6 +48,30 @@ project
 └───index.ts
 ```
 
+### Project configurations
+Project has a set of base configurations that are located in the ``configs/index.ts`` file.
+* session_prefix - This unique identifier that is used to build sessions
+* default_lang - Default language used in the project
+* session_time - Period in which session will run
+* start_state - Identity of the 1st state that runs
+* sequential_requests - Set whether the project should allow user to run sequential querries eg. *144*1*3*6#. This allows for MNOs do not allow this operation
+
+### Project core operations
+1. Input manager - This allows developer to build custom input managers depending on the MNO being served. For example some MNOs chain inputs (1*2*4*4) while others allow single value entry for consecutive requests. 
+2. Terminator - destroys the redis session once the session time runs out
+
+### Project language manager
+Manages all language files to be used in a project. 
+
+### Menu operations
+Manage all operations that aid id building menus 
+
+### State operations
+Manage states and state controllers (Functions that run when a state is called)
+
+### Typings
+Manage project interfaces
+
 
 ## State Management
 A `state` in USSD app would be the stages that a user experiencing while navigating the menus eg:
