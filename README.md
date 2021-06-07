@@ -12,11 +12,16 @@ This USSD menu builder seeks to fix the following issues that we have encountere
     3. Poor adaptability (Pagination and dynamic content handling)
 
 ### 1. State dependency
-On the library [ussd-menu-builder](https://www.npmjs.com/package/ussd-menu-builder), for a state to run all previous state next functions also run. This causes problems when trying to resolve issues on an active state down the chain.
+On the library [ussd-menu-builder](https://www.npmjs.com/package/ussd-menu-builder), given ``20 states`` and lets say we are currently on ``state 10`` on the list, any input provided at this state will trigger all previous states to run. As the states increase so are the number of hops done to run the current state. if an error occurs in one of the previous states it causes a chain reaction on all upcoming states. 
+
+This is certainly bad design. Each state should run independently without bothering others. We solve this problem by ensuring any input provided at ``state 10`` only triggers the function that runs on the current state.
 
 
 ### 2. Poor menu configuration options
-Menus should be built with multi language support and support for different mobile network operator data formats. 
+* Menus should be built with multi language support to cut down development time. 
+* Menus should also support different Mobile Network Operators (MNOs) Input types. 
+    * Some MNOs support chained inputs (1*2*3) while allow sending of one value at a time.
+    * Some MNOs allow sequential requests while others don't support it
 
 ### 3. Poor adaptability 
 Menus should be adaptable and easy to configure new functionalities such as pagination and dynamic menu content without performing hacks and work arounds
